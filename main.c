@@ -71,7 +71,7 @@ unsigned char MatrixKey()
 void Passeord ()
 {
 	static unsigned long password;
-	unsigned long Realpassword=99999;
+	unsigned long Realpassword=01234;
 	static unsigned char count;
 	KeyNum=MatrixKey();
 	if(KeyNum)
@@ -104,6 +104,7 @@ void Passeord ()
 		if(KeyNum==12)
 		{
 			password/=10;
+			count--;
 			LCD_ShowNum(2,1,password,5);
 		}
 		if(KeyNum==13)
