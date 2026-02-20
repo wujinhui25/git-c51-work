@@ -20,7 +20,7 @@
             "name": "Target 1",
             "includePath": [
                 "D:\\main.c\\kile5\\C51\\INC",
-                "d:\\main.c\\51单片机作业\\1矩阵密码锁"
+                "d:\\main.c\\51单片机作业\\1-1矩阵密码锁\\1-1矩阵密码锁"
             ],
             "defines": [
                 "__C51__",

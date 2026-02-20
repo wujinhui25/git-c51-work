@@ -66,12 +66,10 @@ unsigned char MatrixKey()
 //void LCD_ShowBinNum(unsigned char Line,unsigned char Column,unsigned int Number,unsigned char Length);
 
 
-
+unsigned long password;
 
 void Passeord ()
 {
-	static unsigned long password;
-	unsigned long Realpassword=01234;
 	static unsigned char count;
 	KeyNum=MatrixKey();
 	if(KeyNum)
@@ -82,19 +80,19 @@ void Passeord ()
 			{
 				password*=10;
 				password+=KeyNum%10;
-				count++;
-				LCD_ShowNum(2,1,password,5);
 			}
+			count++;
+			LCD_ShowNum(2,1,password,5);
 		}
 		if(KeyNum==11)
 		{
 			
-			if(password==Realpassword)
+			if(password==20266)
 			{
 				LCD_ShowString(1,13,"OK!");
 			}else	{
 					LCD_ShowString(1,13,"ERR!");
-					Delayms(3000);
+					Delayms(1500);
 					LCD_ShowString(1,13,"    ");
 					password=0;
 					count=0;
@@ -124,9 +122,7 @@ void main ()
 		
 	while(1)
 	{
+		LCD_ShowNum(2,1,password,5);
 		Passeord ();
-
-		
-		
 	}
 }
