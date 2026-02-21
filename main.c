@@ -80,8 +80,9 @@ void Passeord ()
 			{
 				password*=10;
 				password+=KeyNum%10;
+				count++;
 			}
-			count++;
+			
 			LCD_ShowNum(2,1,password,5);
 		}
 		if(KeyNum==11)
@@ -99,11 +100,17 @@ void Passeord ()
 					LCD_ShowNum(2,1,password,5);
 						}
 		}
-		if(KeyNum==12)
+		if(password!=20266)
 		{
-			password/=10;
-			count--;
-			LCD_ShowNum(2,1,password,5);
+			if(KeyNum==12)
+			{	
+				if(count>0)
+				{
+					password/=10;
+					count--;
+					LCD_ShowNum(2,1,password,5);
+				}
+			}
 		}
 		if(KeyNum==13)
 		{
@@ -119,10 +126,10 @@ void main ()
 {
 	LCD_Init();
 	LCD_ShowString(1,1,"Password:");
-		
+	LCD_ShowNum(2,1,password,5);
 	while(1)
 	{
-		LCD_ShowNum(2,1,password,5);
+		
 		Passeord ();
 	}
 }
