@@ -1,0 +1,53 @@
+C51 COMPILER V9.54   MATIXKEYPRO                                                           02/21/2026 16:14:08 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MATIXKEYPRO
+OBJECT MODULE PLACED IN .\Objects\MatixKeypro.obj
+COMPILER INVOKED BY: D:\main.c\kile5MDK\C51\BIN\C51.EXE MatixKeypro.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\MatixKeypro.lst) TABS(2) OBJECT(.\Objects\MatixKeypro.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "MatrixKeypro.h"
+   3          #include "Delay.h"
+   4          
+   5          unsigned char MatrixKey()
+   6          {
+   7   1        unsigned char cnt,i,KeyNumber=0;
+   8   1        
+   9   1        for(i=1;i<5;i++)
+  10   1        {
+  11   2          P1=0xFF;
+  12   2          switch(i)
+  13   2          {
+  14   3            case 1:P1_7=0;break;
+  15   3            case 2:P1_6=0;break;
+  16   3            case 3:P1_5=0;break;
+  17   3            case 4:P1_4=0;break;
+  18   3          }
+  19   2          cnt=(i-1)*4;
+  20   2          if(P1_3==0){Delayms(10);while(P1_3==0);Delayms(10);KeyNumber=1+cnt;}
+  21   2          if(P1_2==0){Delayms(10);while(P1_2==0);Delayms(10);KeyNumber=2+cnt;}
+  22   2          if(P1_1==0){Delayms(10);while(P1_1==0);Delayms(10);KeyNumber=3+cnt;}
+  23   2          if(P1_0==0){Delayms(10);while(P1_0==0);Delayms(10);KeyNumber=4+cnt;}
+  24   2          
+  25   2        }
+  26   1      
+  27   1        return KeyNumber;
+  28   1        
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    166    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -389,6 +389,16 @@
               <FileType>5</FileType>
               <FilePath>.\LCD1602.h</FilePath>
             </File>
+            <File>
+              <FileName>MatixKeypro.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MatixKeypro.c</FilePath>
+            </File>
+            <File>
+              <FileName>MatrixKeypro.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MatrixKeypro.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
